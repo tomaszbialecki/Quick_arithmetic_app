@@ -1,58 +1,55 @@
-#może na razie prosto, niech generuje zapytania i przechowuje wynik, potem zajmiemy się zbieraniem statystyk i tym jak będą dodawane dzialania z tabeli, należyt to zrobić jako klase
-#wyniki muszą być tylko na liczby całkowite
+#może na razie prosto, niech generuje zapytania i przechowuje wynik, potem zajmiemy się zbieraniem statystyk i tym jak będą dodawane
+#dzialania z tabeli, należyt to zrobić jako klase
+
 import random
 
-def adding():
-    a = random.randint(1,9)
-    b = random.randint(1,9)
+def adding(limit):
+    a = random.randint(1,limit)
+    b = random.randint(1,limit)
     result = a+b
-    if isinstance(result, int):
-        response = int(input(f"{a}+{b}= "))
-        if response == result:
-            return print("ok")
-        else:
-            return print("not ok")
+    response = int(input(f"{a}+{b}= "))
+    if response == result:
+        return print("ok")
+    else:
+        return print("not ok")
         
-def subtracting():
-    a = random.randint(1,9)
-    b = random.randint(1,9)
+def subtracting(limit):
+    a = random.randint(1,limit)
+    b = random.randint(1,limit)
     result = a-b
-    if isinstance(result, int):
-        response = int(input(f"{a}-{b}= "))
-        if response == result:
-            return print("ok")
-        else:
-            return print("not ok")
+    response = int(input(f"{a}-{b}= "))
+    if response == result:
+        return print("ok")
+    else:
+        return print("not ok")
     
-def multiplying():
-    a = random.randint(1,9)
-    b = random.randint(1,9)
+def multiplying(limit):
+    a = random.randint(2,limit)
+    b = random.randint(2,limit)
     result = a*b
-    if isinstance(result, int):
-        response = int(input(f"{a}*{b}= "))
-        if response == result:
-            return print("ok")
-        else:
-            return print("not ok")
+    response = int(input(f"{a}*{b}= "))
+    if response == result:
+        return print("ok")
+    else:
+        return print("not ok")
 
-#trzeba zrobić tak żeby program wygenerował tylko wynik jako liczbę całkowitą, średnio z tym w zakresie 1-9. Dajmy tej funkcji troche szerszy zasięg 
-def dividing():
-    while True:
-        a = random.randint(1,9)
-        b = random.randint(1,9)
-        result = a/b
-        
-        if isinstance(result, int):
-            response = int(input(f"{a}/{b}= "))
-            if response == result:
-                print("ok")
-            else:
-                print("not ok")
-            break
-        else:
-            continue
+def dividing(limit):
+    a = random.randint(2, limit)
+    b = random.randint(2, limit)
     
-adding()
-subtracting()
-multiplying()
-dividing()
+    while a % b != 0 or a==b :
+        a = random.randint(2, limit)
+        b = random.randint(2, limit)
+    result = a/b
+    response = int(input(f"{a}/{b}= "))
+    if response == result:
+        return print("ok")
+    else:
+        return print("not ok")
+
+    
+adding(50)
+subtracting(100)
+multiplying(12)
+dividing(100)
+
